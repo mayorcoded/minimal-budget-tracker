@@ -1,0 +1,15 @@
+.page {
+  min-height: 100vh;
+  font-family: var(--font-geist-sans);
+}
+
+.header {
+  padding: 24px 26px;
+}
+
+.wordmark {
+  font-size: 17px;
+  font-style: italic;
+  font-weight: 500;
+  margin: 0;
+}
