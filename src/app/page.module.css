@@ -1,10 +1,15 @@
 .page {
   min-height: 100vh;
   font-family: var(--font-geist-sans);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .header {
-  padding: 24px 26px;
+  width: 100%;
+  max-width: 420px;
+  padding: 32px 26px 0;
 }
 
 .wordmark {
@@ -12,4 +17,10 @@
   font-style: italic;
   font-weight: 500;
   margin: 0;
+}
+
+.main {
+  width: 100%;
+  max-width: 420px;
+  padding: 24px 26px 26px;
 }
