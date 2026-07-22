@@ -1,3 +1,4 @@
+import { AddTransactionForm } from "@/components/AddTransactionForm";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -6,6 +7,9 @@ export default function Home() {
       <header className={styles.header}>
         <h1 className={styles.wordmark}>ledger</h1>
       </header>
+      <main className={styles.main}>
+        <AddTransactionForm />
+      </main>
     </div>
   );
 }
