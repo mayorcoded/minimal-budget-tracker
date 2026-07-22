@@ -9,6 +9,16 @@ Clone this for every new demo/project.
 follows the loop (Define & Plan → Design → Build/TDD → Review → Deploy →
 Learn) without you re-explaining it each time.
 
+## Prerequisites
+- **Local:** Node version from `.nvmrc` active (`nvm use`), `gh` CLI
+  authenticated (`repo`, `project`, `workflow` scopes), git configured,
+  Vercel CLI logged in if you'll use it locally.
+- **Accounts:** GitHub (repo + Project board access), Vercel, Claude
+  Design (`/design consent` if pulling wireframes via MCP).
+- **Setup:** full checklist — GitHub repo, project board, Vercel
+  connection + settings — is in `CLAUDE.md`'s **One-time setup**
+  section.
+
 ## Use this template for a new project
 
 1. Copy this folder, rename it, `git init`.
