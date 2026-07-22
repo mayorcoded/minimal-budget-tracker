@@ -25,3 +25,15 @@ export function addTransaction(input: Omit<Transaction, "id">): Transaction {
   saveTransactions([...getTransactions(), transaction]);
   return transaction;
 }
+
+export function getTransactionsSortedByRecency(): Transaction[] {
+  return getTransactions()
+    .map((transaction, index) => ({ transaction, index }))
+    .sort((a, b) => {
+      if (a.transaction.date !== b.transaction.date) {
+        return a.transaction.date < b.transaction.date ? 1 : -1;
+      }
+      return b.index - a.index;
+    })
+    .map(({ transaction }) => transaction);
+}
