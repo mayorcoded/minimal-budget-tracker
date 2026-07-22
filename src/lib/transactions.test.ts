@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { addTransaction, getTransactions } from "./transactions";
+import { addTransaction, getTransactions, getTransactionsSortedByRecency } from "./transactions";
 
 beforeEach(() => {
   localStorage.clear();
@@ -39,5 +39,29 @@ describe("transactions storage", () => {
     const a = addTransaction({ amount: 10, type: "expense", description: "A", date: "2026-07-22" });
     const b = addTransaction({ amount: 20, type: "expense", description: "B", date: "2026-07-22" });
     expect(a.id).not.toBe(b.id);
+  });
+});
+
+describe("getTransactionsSortedByRecency", () => {
+  it("orders by date descending", () => {
+    addTransaction({ amount: 1, type: "expense", description: "Oldest", date: "2026-07-18" });
+    addTransaction({ amount: 2, type: "expense", description: "Newest", date: "2026-07-22" });
+    addTransaction({ amount: 3, type: "expense", description: "Middle", date: "2026-07-20" });
+
+    expect(getTransactionsSortedByRecency().map((t) => t.description)).toEqual([
+      "Newest",
+      "Middle",
+      "Oldest",
+    ]);
+  });
+
+  it("for same-day entries, shows the most recently added first", () => {
+    addTransaction({ amount: 1, type: "expense", description: "Added first", date: "2026-07-22" });
+    addTransaction({ amount: 2, type: "expense", description: "Added second", date: "2026-07-22" });
+
+    expect(getTransactionsSortedByRecency().map((t) => t.description)).toEqual([
+      "Added second",
+      "Added first",
+    ]);
   });
 });
